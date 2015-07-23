@@ -1,21 +1,17 @@
-h3
-  @extend %small-bold
-  color: $accent-light
-  text-align: center
-  padding: 100px 0 30px
+
 
 .face-lockup
   max-width: 780px
   +display(flex)
   margin: 0 auto
   +align-items(center)
-  +justify-content(space-around)
+  +justify-content(space-between)
 
 
   .face-img
+    background-image: url(/assets/img/#{$avatar-path})
     +size(200px)
-    background: url(/assets/img/face.jpg)
-    order: 3
+    +order(3)
     border-radius: 500px
 
   [class^="icon-"]
@@ -27,13 +23,13 @@ h3
       fill: $accent
 
     &.icon-pencil
-      order: 1
+      +order(1)
     &.icon-mouse
-      order: 2
+      +order(2)
     &.icon-browser
-      order: 4
+      +order(4)
     &.icon-video
-      order: 5
+      +order(5)
 
 
 @media screen and (max-width: 650px)
@@ -93,7 +89,7 @@ h3
           margin: 2px
 
       @for $i from 1 through 10
-        &.skill-#{$i} span:nth-child(n+#{$i})
+        &.skill-#{$i} span:nth-child(n+#{$i+1})
           @extend %skill-color
 
 
